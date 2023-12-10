@@ -1,14 +1,23 @@
-import React  from "react";
-import {useState} from "react"
+import React, { useState } from "react";
 
+// Counter component definition
 function Counter() {
+  // Use destructuring to get count and setCount from useState
   const [count, setCount] = useState(0);
 
+  // Combine both increment functions into a single function
   function increment() {
-    setCount((counterIncrement)=> counterIncrement + 1)
+    // Use the functional update form to ensure correct state updates
+    setCount((prevCount) => prevCount + 1);
   }
 
-  return <div onClick={increment}>{count}</div>;
+  // Return a button with an onClick event that calls the increment function
+  return (
+    <button onClick={increment}>
+      I have been clicked {count} times
+    </button>
+  );
 }
 
-export default Counter
+// Export the Counter component
+export default Counter;
